@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étude sur l'Eau Potable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body class="project1-body">
+    <header class="bg-primary text-white text-center p-4">
+        <h1>Étude sur l'Eau Potable</h1>
+        <nav>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index1.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#presentation">Présentation du projet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#objectif">Objectif</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#resultats">Résultats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#telechargements">Téléchargements</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container my-5">
+        <section class="slide-in" id="presentation">
+            <h2 class="text-primary">Présentation de DWFA</h2>
+            <p>
+                <strong>DWFA</strong> (Drinking Water for All) est une ONG dont l'objectif est de garantir un accès universel à l'eau potable.
+                Ses principaux domaines d'intervention sont :
+            </p>
+            <ul>
+                <li><strong>Consulting</strong> : Conseils stratégiques pour des projets liés à l'eau potable.</li>
+                <li><strong>Création de nouveaux services</strong> : Développement de solutions innovantes pour l'approvisionnement en eau.</li>
+                <li><strong>Modernisation de services existants</strong> : Optimisation des infrastructures pour améliorer l'accès à l'eau.</li>
+            </ul>
+        </section>
+
+        <section class="slide-in" id="objectif">
+            <h2 class="text-primary">Objectif du Projet</h2>
+            <p>
+                DWFA souhaite évaluer l'état de l'accès à l'eau potable dans le monde et décider du prochain projet à mettre en œuvre.
+                Les <strong>indicateurs clés</strong> à analyser sont :
+            </p>
+            <ul>
+                <li>Mortalité liée à l'eau insalubre.</li>
+                <li>Répartition des populations rurales et urbaines.</li>
+                <li>Stabilité politique dans les régions concernées.</li>
+                <li>Accès aux services de base (eau, assainissement, hygiène).</li>
+                <li>Évolution de ces indicateurs de 2000 à 2017.</li>
+            </ul>
+            <p>
+                Ces indicateurs permettront de cibler les pays les plus touchés par les problématiques d'accès à l'eau potable et d'orienter le prochain projet de DWFA.
+            </p>
+        </section>
+        
+        <section class="slide-in" id="resultats">
+            <h2 class="text-primary">Aperçu des Résultats</h2>
+            <div class="result-images d-flex justify-content-center flex-wrap">
+                <img src="./Images/Project1/result1.png" alt="Résultat 1" class="result-img mx-2">
+                <img src="./Images/Project1/result2.png" alt="Résultat 2" class="result-img mx-2">
+                <img src="./Images/Project1/result3.png" alt="Résultat 3" class="result-img mx-2">
+            </div>
+        </section>
+
+        <section class="slide-in" id="telechargements">
+            <h2 class="text-primary">Téléchargements</h2>
+            <ul>
+                <li>
+                    <a href="Benali_bahia_5_presentation_022023.pdf" target="_blank">Télécharger la présentation complète</a>
+                </li>
+                <li>
+                    <a href="https://public.tableau.com/app/profile/benali1717/viz/Classeur5_16743891330860/Histoire1" target="_blank">Lien du Tableau Interactif</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="bg-primary text-white text-center p-3">
+        <p>&copy; 2024 Mon Nom</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Attendre que le DOM soit entièrement chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sélectionner tous les éléments que tu veux animer
+            const animatedElements = document.querySelectorAll('.slide-in');
+
+            // Appliquer la classe d'animation à chaque élément
+            animatedElements.forEach((element) => {
+                element.classList.add('slide-in');
+            });
+        });
+    </script>
+    <script>
+        // Attendre que le DOM soit entièrement chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sélectionner tous les éléments que tu veux animer
+            const animatedElements = document.querySelectorAll('.slide-in');
+        
+            // Appliquer la classe d'animation à chaque élément
+            animatedElements.forEach((element) => {
+                element.classList.add('slide-in');
+            });
+    
+            // Gestion du zoom d'image
+            const images = document.querySelectorAll('.result-img');
+            images.forEach(image => {
+                image.addEventListener('click', () => {
+                    // Créer un élément pour le zoom
+                    const zoomedContainer = document.createElement('div');
+                    zoomedContainer.classList.add('zoomed');
+                    
+                    // Ajouter l'image zoomée
+                    const zoomedImage = document.createElement('img');
+                    zoomedImage.src = image.src;
+                    zoomedContainer.appendChild(zoomedImage);
+                    
+                    // Ajouter un bouton de fermeture
+                    const closeButton = document.createElement('div');
+                    closeButton.classList.add('close');
+                    closeButton.innerHTML = '&times;'; // Symbole de fermeture
+                    zoomedContainer.appendChild(closeButton);
+                    
+                    // Gérer la fermeture du zoom
+                    closeButton.addEventListener('click', () => {
+                        document.body.removeChild(zoomedContainer);
+                    });
+    
+                    // Ajouter le zoom au body
+                    document.body.appendChild(zoomedContainer);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

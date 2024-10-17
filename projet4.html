@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentation Client et Maintenance de Modèle pour Olist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body class="project1-body">
+    <header class="bg-primary text-white text-center p-4">
+        <h1>Segmentation Client pour Olist</h1>
+        <nav>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index1.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#project-olist">Présentation du projet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#resultats">Résultats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#telechargements">Téléchargements</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container my-5">
+        <section id="project-olist" class="project-section slide-in">
+            <h2 class="text-primary">Présentation du projet</h2>
+            <p>
+                Ce projet met en avant les principales étapes réalisées dans le cadre de notre collaboration avec Olist, une plateforme e-commerce. Voici un aperçu des travaux effectués :
+            </p>
+            <ul>
+                <li>
+                    <strong>Création de la Base de Données et Extraction des Données</strong> : 
+                    Nous avons d'abord conçu la base de données SQL pour Olist, permettant de stocker et organiser les informations nécessaires. Ensuite, nous avons réalisé des requêtes SQL pour extraire les données demandées.
+                </li>
+                <li>
+                    <strong>Segmentation des Clients</strong> : 
+                    L'objectif clé de ce projet était de segmenter les clients d'Olist en différents clusters en fonction de leur comportement d'achat et de leurs caractéristiques. Cette segmentation permet de mieux cibler les campagnes marketing et d'optimiser les stratégies commerciales.
+                </li>
+                <li>
+                    <strong>Maintenance et Mise à Jour du Modèle</strong> : 
+                    Pour garantir la durabilité et la pertinence du modèle de segmentation client, nous avons également défini une stratégie de maintenance, incluant des recommandations pour la fréquence des mises à jour, assurant ainsi son efficacité dans le temps.
+                </li>
+            </ul>
+        </section>
+
+        <section class="slide-in" id="resultats">
+            <h2 class="text-primary">Aperçu des Résultats</h2>
+            <div class="result-images d-flex justify-content-center flex-wrap">
+                <img src="./Images/Project4/result1.png" alt="Résultat 1" class="result-img mx-2">
+                <img src="./Images/Project4/result2.png" alt="Résultat 2" class="result-img mx-2">
+                <img src="./Images/Project4/result3.png" alt="Résultat 3" class="result-img mx-2">
+            </div>
+        </section>
+
+        <section class="slide-in" id="telechargements">
+            <h2 class="text-primary">Téléchargements</h2>
+            <ul>
+                <li>
+                    <a href="projet4_presentation.pdf" target="_blank">Télécharger la présentation complète</a>
+                </li>
+                <li>
+                    <a href="https://github.com/BahiaB/MLE-P5-SOF" target="_blank">Lien du repo GitHub</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="bg-primary text-white text-center p-3">
+        <p>&copy; 2024 Mon Nom</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Attendre que le DOM soit entièrement chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sélectionner tous les éléments que tu veux animer
+            const animatedElements = document.querySelectorAll('.slide-in');
+
+            // Appliquer la classe d'animation à chaque élément
+            animatedElements.forEach((element) => {
+                element.classList.add('slide-in');
+            });
+
+            // Gestion du zoom d'image
+            const images = document.querySelectorAll('.result-img');
+            images.forEach(image => {
+                image.addEventListener('click', () => {
+                    // Créer un élément pour le zoom
+                    const zoomedContainer = document.createElement('div');
+                    zoomedContainer.classList.add('zoomed');
+
+                    // Ajouter l'image zoomée
+                    const zoomedImage = document.createElement('img');
+                    zoomedImage.src = image.src;
+                    zoomedContainer.appendChild(zoomedImage);
+
+                    // Ajouter un bouton de fermeture
+                    const closeButton = document.createElement('div');
+                    closeButton.classList.add('close');
+                    closeButton.innerHTML = '&times;'; // Symbole de fermeture
+                    zoomedContainer.appendChild(closeButton);
+
+                    // Gérer la fermeture du zoom
+                    closeButton.addEventListener('click', () => {
+                        document.body.removeChild(zoomedContainer);
+                    });
+
+                    // Ajouter le zoom au body
+                    document.body.appendChild(zoomedContainer);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

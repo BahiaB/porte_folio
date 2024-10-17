@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse de Sentiment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body class="project1-body">
+    <header class="bg-primary text-white text-center p-4">
+        <h1>Analyse de Sentiment sur Twitter</h1>
+        <nav>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index1.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#presentation">Présentation du projet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#resultats">Résultats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#telechargements">Téléchargements</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container my-5">
+        <section class="slide-in" id="presentation">
+            <h2 class="text-primary">Présentation du projet</h2>
+            <p>
+                Ce projet vise à développer un modèle d'analyse de sentiment capable d'évaluer les opinions des utilisateurs sur Twitter. 
+                L'objectif est de classifier les tweets en sentiments positifs, négatifs ou neutres, offrant ainsi une vue d'ensemble des tendances sur la plateforme.
+            </p>
+            <section id="objectifs">
+                <h2 class="text-primary">Objectifs</h2>
+                <ul>
+                    <li><strong>Collecte des données</strong> : Récupération d'un ensemble de tweets en utilisant l'API Twitter pour obtenir des données pertinentes pour l'analyse.</li>
+                    <li><strong>Prétraitement des données textuelles</strong> : Nettoyage des tweets, y compris l'élimination des mentions, hashtags et caractères spéciaux.</li>
+                    <li><strong>Exploration de différentes approches</strong> : Test de plusieurs modèles de machine learning pour classer les tweets en sentiments.</li>
+                    <li><strong>Évaluation des performances</strong> : Analyse des résultats obtenus pour identifier le modèle le plus performant.</li>
+                    <li><strong>Visualisation des résultats</strong> : Création de graphiques pour illustrer les tendances de sentiment sur Twitter.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section class="slide-in" id="resultats">
+            <h2 class="text-primary">Aperçu des Résultats</h2>
+            <div class="result-images d-flex justify-content-center flex-wrap">
+                <img src="./Images/Project4/result1.png" alt="Résultat 1" class="result-img mx-2">
+                <img src="./Images/Project4/result2.png" alt="Résultat 2" class="result-img mx-2">
+                <img src="./Images/Project4/result3.png" alt="Résultat 3" class="result-img mx-2">
+            </div>
+        </section>
+
+        <section class="slide-in" id="telechargements">
+            <h2 class="text-primary">Téléchargements</h2>
+            <ul>
+                <li>
+                    <a href="Benali_Bahia_4_presentation_042024.pdf" target="_blank">Télécharger la présentation complète</a>
+                </li>
+                <li>
+                    <a href="https://github.com/BahiaB/MLE-P4-Sentiment-Analysis" target="_blank">Lien du repo GitHub</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="bg-primary text-white text-center p-3">
+        <p>&copy; 2024 Mon Nom</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Attendre que le DOM soit entièrement chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sélectionner tous les éléments que tu veux animer
+            const animatedElements = document.querySelectorAll('.slide-in');
+
+            // Appliquer la classe d'animation à chaque élément
+            animatedElements.forEach((element) => {
+                element.classList.add('slide-in');
+            });
+
+            // Gestion du zoom d'image
+            const images = document.querySelectorAll('.result-img');
+            images.forEach(image => {
+                image.addEventListener('click', () => {
+                    // Créer un élément pour le zoom
+                    const zoomedContainer = document.createElement('div');
+                    zoomedContainer.classList.add('zoomed');
+
+                    // Ajouter l'image zoomée
+                    const zoomedImage = document.createElement('img');
+                    zoomedImage.src = image.src;
+                    zoomedContainer.appendChild(zoomedImage);
+
+                    // Ajouter un bouton de fermeture
+                    const closeButton = document.createElement('div');
+                    closeButton.classList.add('close');
+                    closeButton.innerHTML = '&times;'; // Symbole de fermeture
+                    zoomedContainer.appendChild(closeButton);
+
+                    // Gérer la fermeture du zoom
+                    closeButton.addEventListener('click', () => {
+                        document.body.removeChild(zoomedContainer);
+                    });
+
+                    // Ajouter le zoom au body
+                    document.body.appendChild(zoomedContainer);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
