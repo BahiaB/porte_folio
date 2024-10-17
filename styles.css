@@ -1,0 +1,122 @@
+/* Palette de couleurs : Bleu foncé, Rose pâle, Blanc cassé */
+:root {
+    --bleu-fonce: #2C3E50;
+    --rose-pale: #FAD4D8;
+    --blanc-casse: #F0F4F8;
+}
+
+/* Police Montserrat */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--blanc-casse);
+    color: var(--bleu-fonce);
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--rose-pale);
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--bleu-fonce);
+}
+
+.nav-link {
+    color: var(--bleu-fonce);
+    margin-right: 15px;
+}
+
+.nav-link:hover {
+    color: var(--rose-pale);
+    background-color: var(--bleu-fonce);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Projets */
+h2 {
+    color: var(--bleu-fonce);
+    font-weight: 500;
+}
+
+.img-fluid {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.img-fluid:hover {
+    transform: scale(1.05);
+}
+
+/* À Propos */
+#projets, #a-propos, #contact {
+    padding: 40px 0;
+}
+
+/* En-tête */
+header {
+    width: 100%;
+   background-color: #2C3E50; /* Nouveau bleu */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+/* Footer */
+footer {
+    background-color: var(--bleu-fonce);
+    color: var(--blanc-casse);
+    font-weight: 300;
+}
+
+.result-images {
+    display: flex; /* Utilise flexbox pour aligner les images sur une seule ligne */
+    justify-content: center; /* Centre les images horizontalement */
+    flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
+    gap: 15px; /* Ajoute un espace entre les images */
+    margin-top: 20px;
+}
+
+.result-img {
+    width: 18rem; /* Taille des vignettes plus petites */
+    height: auto; /* Garde le ratio d'aspect */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+    transition: transform 0.3s; /* Transition douce pour l'effet de zoom */
+}
+
+.result-img:hover {
+    transform: scale(1.1); /* Légère augmentation de la taille au survol */
+}
+
+/* Style pour le zoom */
+.zoomed {
+    position: fixed; /* Positionne l'image zoomée */
+    top: 0; /* Aligne en haut */
+    left: 0; /* Aligne à gauche */
+    width: 100%; /* Prend toute la largeur */
+    height: 100%; /* Prend toute la hauteur */
+    background-color: rgba(0, 0, 0, 0.8); /* Fond noir semi-transparent */
+    display: flex; /* Utilise flexbox pour centrer */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    z-index: 1000; /* Au-dessus des autres éléments */
+}
+
+.zoomed img {
+    max-width: 90%; /* Limite la largeur de l'image agrandie */
+    max-height: 90%; /* Limite la hauteur de l'image agrandie */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+.zoomed .close {
+    position: absolute; /* Position pour le bouton de fermeture */
+    top: 20px; /* Distance du haut */
+    right: 20px; /* Distance de la droite */
+    font-size: 30px; /* Taille du bouton de fermeture */
+    color: white; /* Couleur du bouton de fermeture */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
