@@ -31,11 +31,13 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--rose-pale);
+     color: var(--blanc-casse); 
     background-color: var(--bleu-fonce);
     padding: 5px;
     border-radius: 5px;
 }
+
+
 
 /* Projets */
 h2 {
