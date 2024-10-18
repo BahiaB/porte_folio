@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentation Client et Maintenance de Modèle pour Olist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+     
+    </style>
+</head>
+<body class="project1-body">
+    <header class="text-white text-center p-4">
+        <h1>Segmentation Client pour Olist</h1>
+        <nav>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="index.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#project-consomation_batiment">Présentation du projet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#resultats">Résultats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#telechargements">Téléchargements</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container my-5">
+        <section id="projet-seattle" class="project-section slide-in">
+            <h2>Projet de Prédiction des Émissions de CO2 à Seattle</h2>
+            
+            <h3>Contexte</h3>
+            <p>
+                Dans le cadre de l'initiative de Seattle pour atteindre la neutralité en émissions de carbone d'ici 2050, ce projet se concentre sur l'analyse et la prédiction des émissions de CO2 et de la consommation d'énergie des bâtiments non résidentiels. Les données collectées en 2016 servent de base pour développer des modèles prédictifs afin d'évaluer la performance énergétique des bâtiments pour lesquels aucune mesure n’a encore été effectuée.
+            </p>
+        
+            <h3>Objectifs</h3>
+            <ul>
+                <li><strong>Analyse Exploratoire</strong> : Réaliser une analyse exploratoire des données structurelles des bâtiments (taille, usage, date de construction, situation géographique) pour identifier des patterns et des insights.</li>
+                <li><strong>Modélisation Prédictive</strong> : Tester différents modèles de machine learning pour prédire les émissions de CO2 et la consommation d'énergie, en intégrant des variables structurelles pertinentes et en évaluant l'impact de l'ENERGY STAR Score sur les prédictions.</li>
+                <li><strong>Évaluation et Optimisation</strong> : Mettre en place une évaluation rigoureuse des performances des modèles, optimiser les hyperparamètres et choisir les algorithmes de machine learning appropriés via validation croisée.</li>
+            </ul>
+        </section>
+
+        <section class="slide-in" id="resultats">
+            <h2>Aperçu des Résultats</h2>
+            <div class="result-images d-flex justify-content-center flex-wrap">
+                <img src="./Images/Project4/result1.png" alt="Résultat 1" class="result-img mx-2">
+                <img src="./Images/Project4/result2.png" alt="Résultat 2" class="result-img mx-2">
+                <img src="./Images/Project4/result3.png" alt="Résultat 3" class="result-img mx-2">
+            </div>
+        </section>
+
+        <section class="slide-in" id="telechargements">
+            <h2>Téléchargements</h2>
+            <ul>
+                <li>
+                    <a href="projet4.2.pdf" target="_blank">Télécharger la présentation complète</a>
+                </li>
+                <li>
+                    <a href="https://github.com/BahiaB/Segmentez-des-clients-dun-site-e-commerce-BENALI-Bahia" target="_blank">Lien du repo GitHub</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="text-white text-center p-3">
+        <p>&copy; 2024 Mon Nom</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Attendre que le DOM soit entièrement chargé
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sélectionner tous les éléments que tu veux animer
+            const animatedElements = document.querySelectorAll('.slide-in');
+
+            // Appliquer la classe d'animation à chaque élément
+            animatedElements.forEach((element) => {
+                element.classList.add('slide-in');
+            });
+
+            // Gestion du zoom d'image
+            const images = document.querySelectorAll('.result-img');
+            images.forEach(image => {
+                image.addEventListener('click', () => {
+                    // Créer un élément pour le zoom
+                    const zoomedContainer = document.createElement('div');
+                    zoomedContainer.classList.add('zoomed');
+
+                    // Ajouter l'image zoomée
+                    const zoomedImage = document.createElement('img');
+                    zoomedImage.src = image.src;
+                    zoomedContainer.appendChild(zoomedImage);
+
+                    // Ajouter un bouton de fermeture
+                    const closeButton = document.createElement('div');
+                    closeButton.classList.add('close');
+                    closeButton.innerHTML = '&times;'; // Symbole de fermeture
+                    zoomedContainer.appendChild(closeButton);
+
+                    // Gérer la fermeture du zoom
+                    closeButton.addEventListener('click', () => {
+                        document.body.removeChild(zoomedContainer);
+                    });
+
+                    // Ajouter le zoom au body
+                    document.body.appendChild(zoomedContainer);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -29,21 +29,33 @@
     <!-- Section Projets -->
     <section id="projets" class="container mt-5">
         <h2 class="text-center">Mes Projets</h2>
-        <div class="row text-center mt-4">
-            <div class="col-md-3">
-                <a href="projet1.html"><img src="./Images/etude_eau_potable.png" class="img-fluid rounded" alt="Étude Eau Potable"></a>
+        <div class="d-flex align-items-center mt-4">
+            <button class="btn" id="scroll-left">&#8592;</button>
+            <div class="overflow-auto flex-grow-1">
+                <div class="d-flex" id="projects-container">
+                    <div class="p-2">
+                        <a href="projet1.html"><img src="./Images/etude_eau_potable.png" class="img-fluid rounded" alt="Étude Eau Potable"></a>
+                    </div>
+                    <div class="p-2">
+                        <a href="projet2.html"><img src="./Images/dogs_bredd_P6.png" class="img-fluid rounded" alt="Projet 2"></a>
+                    </div>
+                    <div class="p-2">
+                        <a href="projet3.html"><img src="./Images/StackOverflow.png" class="img-fluid rounded" alt="Projet 3"></a>
+                    </div>
+                    <div class="p-2">
+                        <a href="projet4.html"><img src="./Images/Segmentation.png" class="img-fluid rounded" alt="Projet 4"></a>
+                    </div>
+                    <div class="p-2">
+                        <a href="projet5.html"><img src="./Images/Conso_bat.png" class="img-fluid rounded" alt="Projet 5"></a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <a href="projet2.html"><img src="./Images/dogs_bredd_P6.png" class="img-fluid rounded" alt="Projet 2"></a>
-            </div>
-            <div class="col-md-3">
-                <a href="projet3.html"><img src="./Images/StackOverflow.png" class="img-fluid rounded" alt="Projet 3"></a>
-            </div>
-            <div class="col-md-3">
-                <a href="projet4.html"><img src="./Images/Segmentation.png" class="img-fluid rounded" alt="Projet 4"></a>
-            </div>
+            <button class="btn" id="scroll-right">&#8594;</button>
         </div>
     </section>
+    
+    
+    
 
     <!-- Section À Propos -->
     <section id="a-propos" class="bg-light py-5">
@@ -125,6 +137,22 @@
     (function(){
         emailjs.init("c9OJ6UiLdoWne0hDN");
     })();
-    </script>    
+    </script> 
+    <script>
+    const scrollLeftButton = document.getElementById('scroll-left');
+    const scrollRightButton = document.getElementById('scroll-right');
+    const projectsContainer = document.getElementById('projects-container');
+    
+    // Ajustez la valeur de défilement ici
+    const scrollAmount = 300; // Nombre de pixels à défiler
+    
+    scrollLeftButton.addEventListener('click', () => {
+        projectsContainer.scrollBy({ top: 0, left: -scrollAmount, behavior: 'smooth' });
+    });
+    
+    scrollRightButton.addEventListener('click', () => {
+        projectsContainer.scrollBy({ top: 0, left: scrollAmount, behavior: 'smooth' });
+    });
+</script>   
     </body>
     </html>
