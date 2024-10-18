@@ -175,20 +175,65 @@
     })();
     </script> 
     <script>
-    const scrollLeftButton = document.getElementById('scroll-left');
-    const scrollRightButton = document.getElementById('scroll-right');
-    const projectsContainer = document.getElementById('projects-container');
+        const scrollLeftButton = document.getElementById('scroll-left');
+        const scrollRightButton = document.getElementById('scroll-right');
+        const projectsContainer = document.getElementById('projects-container');
     
-    // Ajustez la valeur de défilement ici
-    const scrollAmount = 300; // Nombre de pixels à défiler
+        // Ajustez la valeur de défilement ici
+        const scrollAmount = 300; // Nombre de pixels à défiler
     
-    scrollLeftButton.addEventListener('click', () => {
-        projectsContainer.scrollBy({ top: 0, left: -scrollAmount, behavior: 'smooth' });
-    });
+        scrollLeftButton.addEventListener('click', () => {
+            projectsContainer.scrollBy({ top: 0, left: -scrollAmount, behavior: 'smooth' });
+        });
     
-    scrollRightButton.addEventListener('click', () => {
-        projectsContainer.scrollBy({ top: 0, left: scrollAmount, behavior: 'smooth' });
-    });
-</script>   
+        scrollRightButton.addEventListener('click', () => {
+            projectsContainer.scrollBy({ top: 0, left: scrollAmount, behavior: 'smooth' });
+        });
+    
+        // Variables pour la gestion du drag et du touch
+        let isDragging = false;
+        let startX;
+        let scrollLeft;
+    
+        // Événements pour le drag avec la souris
+        projectsContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - projectsContainer.offsetLeft;
+            scrollLeft = projectsContainer.scrollLeft;
+            projectsContainer.style.cursor = 'grabbing'; // changer le curseur pendant le drag
+        });
+    
+        projectsContainer.addEventListener('mouseleave', () => {
+            isDragging = false;
+            projectsContainer.style.cursor = 'grab';
+        });
+    
+        projectsContainer.addEventListener('mouseup', () => {
+            isDragging = false;
+            projectsContainer.style.cursor = 'grab';
+        });
+    
+        projectsContainer.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - projectsContainer.offsetLeft;
+            const walk = (x - startX) * 2; // multiplier pour accélérer le défilement
+            projectsContainer.scrollLeft = scrollLeft - walk;
+        });
+    
+        // Événements pour le touch sur mobile/tablette
+        projectsContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX - projectsContainer.offsetLeft;
+            scrollLeft = projectsContainer.scrollLeft;
+        });
+    
+        projectsContainer.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const x = e.touches[0].pageX - projectsContainer.offsetLeft;
+            const walk = (x - startX) * 2; // multiplier pour accélérer le défilement
+            projectsContainer.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+       
     </body>
     </html>
