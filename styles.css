@@ -61,6 +61,56 @@ h2 {
     transform: scale(1.05);
 }
 
+/* Conteneur pour l'image et le texte */
+.image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Effet d'image */
+.image-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Effet survol pour assombrir l'image */
+.image-container:hover img {
+    transform: scale(1.1); /* Agrandir légèrement l'image */
+    filter: brightness(50%); /* Assombrir l'image */
+}
+
+/* Superposition (overlay) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur sombre semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+/* Texte affiché au survol */
+.project-text {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Afficher l'overlay au hover */
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+
 /* À Propos */
 #projets, #a-propos, #contact {
     padding: 40px 10;
@@ -154,11 +204,3 @@ img {
     border-radius: 8px; /* Pour des coins arrondis si désiré */
 }
 
-/*#projects-container {
-    display: flex;  
-    overflow-x: hidden; 
-}
-
-.p-2 {
-    min-width: 200px; 
-}*/
